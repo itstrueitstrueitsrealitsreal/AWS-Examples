@@ -6,12 +6,15 @@ terraform {
     }
   }
 }
+provider "aws" {
+
+}
 resource "aws_s3_bucket" "default" {
 }
 
 resource "aws_s3_object" "object" {
-  bucket = resource.aws_s3_bucket.default
+  bucket = aws_s3_bucket.default.id
   key    = "myfile.txt"
   source = "myfile.txt"
-  etag = filemd5("path/to/file")
+  etag = filemd5("myfile.txt")
 }
