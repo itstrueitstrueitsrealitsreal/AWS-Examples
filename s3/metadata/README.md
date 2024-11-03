@@ -4,7 +4,7 @@
 aws s3 mb s3://metadata-example-ks
 ```
 
-## Create folder
+## Create file
 ```sh
 echo "Hello Mars" > hello.txt
 ```
@@ -20,6 +20,7 @@ aws s3api put-object --bucket metadata-example-ks --key hello.txt --body hello.t
 aws s3api head-object --bucket metadata-example-ks --key hello.txt
 ```
 
+## Cleanup
 ```sh
 aws s3 rm s3://metadata-example-ks/hello.txt
 aws s3 rb s3://metadata-example-ks
